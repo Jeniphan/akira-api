@@ -34,5 +34,27 @@ namespace akiira_api.Controllers
     {
       return Ok(await CharacterService.AddCharacter(newCharacter));
     }
+
+    [HttpPut]
+    public async Task<ActionResult<ServiceReponse<GetCharacterDto>>> updateCharacter(UpdateCharacterDto updateCharacter)
+    {
+      var response = await CharacterService.UpdateCharacter(updateCharacter);
+      if (response.Data == null)
+      {
+        return NotFound(response);
+      }
+      return Ok(response);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<ServiceReponse<List<GetCharacterDto>>>> Delete(int id)
+    {
+      var response = await CharacterService.DeleteCharacter(id);
+      if (response.Data == null)
+      {
+        return NotFound(response);
+      }
+      return Ok(response);
+    }
   }
 }

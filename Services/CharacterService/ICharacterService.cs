@@ -11,6 +11,8 @@ namespace akiira_api.Services.CharacterService
     Task<ServiceReponse<List<GetCharacterDto>>> GetAllCharacter();
     Task<ServiceReponse<GetCharacterDto>> GetCharacterbyId(int id);
     Task<ServiceReponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
+    Task<ServiceReponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updateCharacter);
+    Task<ServiceReponse<List<GetCharacterDto>>> DeleteCharacter(int Id);
 
   }
 }

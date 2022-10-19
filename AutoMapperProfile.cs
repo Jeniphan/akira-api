@@ -11,8 +11,9 @@ namespace akiira_api
   {
     public AutoMapperProfile()
     {
-      CreateMap<character, GetCharacterDto>();
-      CreateMap<AddCharacterDto, character>();
+      CreateMap<Character, GetCharacterDto>();
+      CreateMap<AddCharacterDto, Character>();
+      CreateMap<UpdateCharacterDto, Character>();
 
     }
   }

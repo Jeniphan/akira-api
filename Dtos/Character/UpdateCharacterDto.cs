@@ -1,6 +1,11 @@
-namespace akiira_api.models
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace akiira_api.Dtos.Character
 {
-  public class Character
+  public class UpdateCharacterDto
   {
     public int Id { get; set; }
     public string Name { get; set; } = "Akiira";
