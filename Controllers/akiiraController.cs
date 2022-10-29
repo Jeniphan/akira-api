@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using akiira_api.Dtos.Character;
+using akiira_api.models;
 using akiira_api.Services.CharacterService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +33,20 @@ namespace akiira_api.Controllers
     [HttpPost]
     public async Task<ActionResult<ServiceReponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
     {
-      return Ok(await CharacterService.AddCharacter(newCharacter));
+      try
+      {
+        var result = await CharacterService.AddCharacter(newCharacter);
+        return Ok(result);
+      }
+      catch (Exception ex)
+      {
+        var result = new ServiceReponse<dynamic>();
+        result.Data = ex;
+        result.Message = ex.Message;
+        result.Success = false;
+        return Ok(result);
+      }
+
     }
 
     [HttpPut]
