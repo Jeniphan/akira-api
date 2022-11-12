@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using akira_api.models;
 using Microsoft.EntityFrameworkCore;
 
 namespace akira_api.Data
@@ -14,6 +15,7 @@ namespace akira_api.Data
     }
 
     public DbSet<Character> Characters { get; set; }
+    public DbSet<User> Users {get; set;}
 
   }
 }
